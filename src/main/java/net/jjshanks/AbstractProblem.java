@@ -1,16 +1,15 @@
 package net.jjshanks;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractProblem {
 
-    private static final Logger LOGGER = Logger.getLogger("Aoc2020");
+    static final Logger LOG = LoggerFactory.getLogger(AbstractProblem.class);
 
     protected AbstractProblem() {
     }
 
     void solution(Object solution) {
-        LOGGER.log(Level.INFO, "The solution is: {0}", solution);
+        LOG.info("The solution is: {}", solution);
     }
 }
