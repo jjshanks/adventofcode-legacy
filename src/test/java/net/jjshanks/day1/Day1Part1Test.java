@@ -1,4 +1,4 @@
-package net.jjshanks;
+package net.jjshanks.day1;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,6 +11,8 @@ import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.read.ListAppender;
 import junit.framework.TestCase;
+import net.jjshanks.AbstractProblem;
+import net.jjshanks.JollyException;
 
 public class Day1Part1Test extends TestCase {
 

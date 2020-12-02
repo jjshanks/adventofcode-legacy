@@ -1,10 +1,14 @@
-package net.jjshanks;
+package net.jjshanks.day2;
 
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.jjshanks.AbstractProblem;
+import net.jjshanks.InputReader;
+import net.jjshanks.JollyException;
 
 public class Day2Part2 extends AbstractProblem {
 

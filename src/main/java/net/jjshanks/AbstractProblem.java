@@ -11,7 +11,7 @@ public abstract class AbstractProblem {
 
     public abstract void run() throws JollyException;
 
-    void solution(Object solution) {
+    protected void solution(Object solution) {
         LOG.info("The solution is: {}", solution);
     }
 }

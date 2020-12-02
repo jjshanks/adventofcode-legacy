@@ -1,4 +1,4 @@
-package net.jjshanks;
+package net.jjshanks.day1;
 
 import java.util.HashSet;
 import java.util.List;
@@ -6,6 +6,10 @@ import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.jjshanks.AbstractProblem;
+import net.jjshanks.InputReader;
+import net.jjshanks.JollyException;
 
 public class Day1Part1 extends AbstractProblem {
 
