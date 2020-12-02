@@ -32,11 +32,15 @@ public class Day2Part1 extends AbstractProblem {
     public void run() throws JollyException {
         List<PasswordEntry> values = inputReader.getInput(PasswordEntry::parse);
         int total = 0;
+        LOG.debug("Processing {} enteries", values.size());
         for(PasswordEntry pe : values) {
+            LOG.trace("Processing {}", pe);
             if(pe.valid()) {
+                LOG.trace("Entry {} is valid", pe);
                 total++;
             }
         }
+        LOG.debug("Found {} valid passwords", total);
         solution(total);
     }
     

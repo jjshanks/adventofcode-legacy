@@ -31,12 +31,16 @@ public class Day2Part2 extends AbstractProblem {
     @Override
     public void run() throws JollyException {
         List<PasswordEntry> values = inputReader.getInput(PasswordEntry::parse);
+        LOG.debug("Processing {} enteries", values.size());
         int total = 0;
         for(PasswordEntry pe : values) {
+            LOG.trace("Processing {}", pe);
             if(pe.valid()) {
+                LOG.trace("Entry {} is valid", pe);
                 total++;
             }
         }
+        LOG.debug("Found {} valid passwords", total);
         solution(total);
     }
     
