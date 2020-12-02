@@ -9,6 +9,8 @@ public abstract class AbstractProblem {
     protected AbstractProblem() {
     }
 
+    public abstract void run() throws JollyException;
+
     void solution(Object solution) {
         LOG.info("The solution is: {}", solution);
     }

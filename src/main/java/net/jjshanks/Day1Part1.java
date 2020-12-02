@@ -1,11 +1,14 @@
 package net.jjshanks;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Day1Part1 extends AbstractProblem {
-    
+
     private InputReader inputReader;
 
     static final Logger LOG = LoggerFactory.getLogger(Day1Part1.class);
@@ -14,11 +17,15 @@ public class Day1Part1 extends AbstractProblem {
         new Day1Part1().run();
     }
 
-    public Day1Part1() {
-        this.inputReader = new InputReader("input1");
+    Day1Part1(String inputPath) {
+        this.inputReader = new InputReader(inputPath);
     }
 
-    public void run() throws Exception {
+    public Day1Part1() {
+        this("input1");
+    }
+
+    public void run() throws JollyException {
         List<Integer> values = inputReader.getInput(Integer::parseInt);
         Set<Integer> seen = new HashSet<>();
         for(Integer value : values) {

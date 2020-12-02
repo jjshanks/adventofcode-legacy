@@ -1,12 +1,17 @@
 package net.jjshanks;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Day1Part2 extends AbstractProblem {
-    
+
     private InputReader inputReader;
 
     static final Logger LOG = LoggerFactory.getLogger(Day1Part2.class);
@@ -15,11 +20,15 @@ public class Day1Part2 extends AbstractProblem {
         new Day1Part2().run();
     }
 
-    public Day1Part2() {
-        this.inputReader = new InputReader("input1");
+    Day1Part2(String inputPath) {
+        this.inputReader = new InputReader(inputPath);
     }
 
-    public void run() throws Exception {
+    public Day1Part2() {
+        this("input1");
+    }
+
+    public void run() throws JollyException {
         List<Integer> values = inputReader.getInput(Integer::parseInt);
         Set<Integer> seen = new HashSet<>();
         Map<Integer, List<Integer>> canidates = new HashMap<>();
