@@ -55,6 +55,12 @@ public class Day2Part2 extends AbstractProblem {
         }
 
         boolean valid() {
+            if(password.length() < pos1 - 1) {
+                return false;
+            }
+            if(password.length() <= pos2 - 1) {
+                return password.charAt(pos1 - 1) == req;
+            }
             return password.charAt(pos1 - 1) == req ^ password.charAt(pos2 - 1) == req;
         }
         
