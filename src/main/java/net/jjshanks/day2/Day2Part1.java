@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import net.jjshanks.AbstractProblem;
 import net.jjshanks.InputReader;
-import net.jjshanks.JollyException;
+import net.jjshanks.error.JollyException;
 
 public class Day2Part1 extends AbstractProblem {
 
@@ -43,7 +43,7 @@ public class Day2Part1 extends AbstractProblem {
         LOG.debug("Found {} valid passwords", total);
         solution(total);
     }
-    
+
     static class PasswordEntry {
         int min;
         int max;
@@ -58,7 +58,7 @@ public class Day2Part1 extends AbstractProblem {
             long count = password.chars().filter(ch -> ch == req).count();
             return count >= min && count <= max;
         }
-        
+
         public static PasswordEntry parse(String s) {
             String[] parts = s.split(" ");
             String[] minMax = parts[0].split("-");

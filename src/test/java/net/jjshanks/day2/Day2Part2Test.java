@@ -12,7 +12,7 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.read.ListAppender;
 import junit.framework.TestCase;
 import net.jjshanks.AbstractProblem;
-import net.jjshanks.JollyException;
+import net.jjshanks.error.JollyException;
 
 public class Day2Part2Test extends TestCase {
 

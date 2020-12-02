@@ -3,6 +3,7 @@ package net.jjshanks;
 import java.util.List;
 
 import junit.framework.TestCase;
+import net.jjshanks.error.JollyException;
 
 public class InputReaderTest extends TestCase {
 

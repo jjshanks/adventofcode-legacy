@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import net.jjshanks.AbstractProblem;
 import net.jjshanks.InputReader;
-import net.jjshanks.JollyException;
+import net.jjshanks.error.JollyException;
 
 public class Day1Part2 extends AbstractProblem {
 
