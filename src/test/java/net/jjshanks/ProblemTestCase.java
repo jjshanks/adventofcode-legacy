@@ -30,9 +30,10 @@ abstract public class ProblemTestCase {
       solutionLogger.detachAppender(appender);
     }
 
-    protected void assertSolution(String expected) {
+    protected void assertSolution(Object expected) {
+        String line = String.format("The solution is: %s", expected);
         List<String> logs = appender.list.stream().map(ILoggingEvent::getFormattedMessage).collect(Collectors.toList());
-        assertTrue("Didn't find expected solution log line.", logs.contains(expected));
+        assertTrue(String.format("Didn't find expected solution '%s' log line in %s.", line, logs), logs.contains(line));
     }
 
 }

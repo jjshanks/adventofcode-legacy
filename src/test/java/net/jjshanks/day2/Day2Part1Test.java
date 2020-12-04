@@ -12,7 +12,7 @@ public class Day2Part1Test extends ProblemTestCase {
     public void testSimple() throws JollyException {
         AbstractProblem solver = new Day2Part1("day2/simpleInput");
         solver.run();
-        assertSolution("The solution is: 2");
+        assertSolution(2);
     }
 
 }
