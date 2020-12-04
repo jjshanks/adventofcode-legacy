@@ -21,4 +21,11 @@ public class InputReaderTest extends TestCase {
         List<Integer> expected = List.of(2, 3, 5, 7);
         assertEquals(expected, actual);
     }
+
+    public void testReaderWithScannerInput() throws JollyException {
+        InputReader<String> ir = new InputReader<>("testInput2");
+        List<String> actual = ir.getInput(Function.identity(), ir.DEFAULT_COLLECTOR, "[\r\n][\r\n]+");
+        List<String> expected = List.of("1\n2", "3\n4", "123");
+        assertEquals(expected, actual);
+    }
 }

@@ -56,7 +56,7 @@ public class Day4part2 extends AbstractProblem {
             "byr", s -> {int i = Integer.parseInt(s); return i >= 1920 && i <= 2002;},
             "iyr", s -> {int i = Integer.parseInt(s); return i >= 2010 && i <= 2020;},
             "eyr", s -> {int i = Integer.parseInt(s); return i >= 2020 && i <= 2030;},
-            "hgt", Passport::HeightValidator,
+            "hgt", Passport::heightValidator,
             "hcl", s -> Pattern.matches("#[0-9a-f]{6}", s),
             "ecl", s -> Pattern.matches("(amb|blu|brn|gry|grn|hzl|oth)", s),
             "pid", s -> s.length() == 9 && Integer.parseInt(s) >= 0
@@ -64,7 +64,7 @@ public class Day4part2 extends AbstractProblem {
 
         Map<String, String> fields = new HashMap<>();
 
-        static boolean HeightValidator(String s) {
+        static boolean heightValidator(String s) {
             if(s.length() <= 3) {
                 return false;
             }
@@ -106,7 +106,7 @@ public class Day4part2 extends AbstractProblem {
                     LOG.debug("Missing field {}", key);
                     return false;
                 }
-                if(VALIDATORS.containsKey(key) && !VALIDATORS.get(key).apply(fields.get(key))) {
+                if(VALIDATORS.containsKey(key) && Boolean.FALSE.equals(VALIDATORS.get(key).apply(fields.get(key)))) {
                         LOG.debug("Field {} with value {} is not valid", key, fields.get(key));
                         return false;
                 }
