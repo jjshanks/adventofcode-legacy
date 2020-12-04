@@ -15,20 +15,20 @@ import net.jjshanks.AbstractProblem;
 import net.jjshanks.InputReader;
 import net.jjshanks.error.JollyException;
 
-public class Day4part2 extends AbstractProblem {
+public class Day4Part2 extends AbstractProblem {
     private InputReader<Passport> inputReader;
 
-    static final Logger LOG = LoggerFactory.getLogger(Day4part2.class);
+    static final Logger LOG = LoggerFactory.getLogger(Day4Part2.class);
 
     public static void main(String... args) throws Exception {
-        new Day4part2().run();
+        new Day4Part2().run();
     }
 
-    Day4part2(String inputPath) {
+    Day4Part2(String inputPath) {
         this.inputReader = new InputReader<>(inputPath);
     }
 
-    public Day4part2() {
+    public Day4Part2() {
         this("input4");
     }
 
