@@ -53,9 +53,9 @@ public class Day4Part2 extends AbstractProblem {
         static final Set<String> REQUIRED_FIELDS = Set.of("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid");
 
         static final Map<String, Function<String, Boolean>> VALIDATORS = Map.of(
-            "byr", s -> {int i = Integer.parseInt(s); return i >= 1920 && i <= 2002;},
-            "iyr", s -> {int i = Integer.parseInt(s); return i >= 2010 && i <= 2020;},
-            "eyr", s -> {int i = Integer.parseInt(s); return i >= 2020 && i <= 2030;},
+            "byr", s -> rangeValidator(s, 1920, 2002),
+            "iyr", s -> rangeValidator(s, 2010, 2020),
+            "eyr", s -> rangeValidator(s, 2020, 2030),
             "hgt", Passport::heightValidator,
             "hcl", s -> Pattern.matches("#[0-9a-f]{6}", s),
             "ecl", s -> Pattern.matches("(amb|blu|brn|gry|grn|hzl|oth)", s),
@@ -63,6 +63,15 @@ public class Day4Part2 extends AbstractProblem {
         );
 
         Map<String, String> fields = new HashMap<>();
+
+        public static boolean rangeValidator(String s, int min, int max) {
+            try {
+                int i = Integer.parseInt(s);
+                return i >= min && i <= max;
+            } catch(NumberFormatException e) {
+                return false;
+            }
+        }
 
         static boolean heightValidator(String s) {
             if(s.length() <= 3) {
