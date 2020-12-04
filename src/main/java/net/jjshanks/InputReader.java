@@ -11,9 +11,10 @@ import java.util.stream.Collectors;
 
 import net.jjshanks.error.JollyException;
 
-public class InputReader {
+public class InputReader<U> {
 
-    static final String DEFULAT_INPUT_DELIMITER = "[\r\n]+";
+    final String DEFULAT_INPUT_DELIMITER = "[\r\n]+";
+    final Collector<U, ?, List<U>> DEFAULT_COLLECTOR = Collectors.toList();
 
     private final String inputName;
 
@@ -21,15 +22,11 @@ public class InputReader {
         this.inputName = inputName;
     }
 
-    public List<String> getInput() throws JollyException {
-        return getInput(Function.identity(), Collectors.toList(), DEFULAT_INPUT_DELIMITER);
-    }
-
-    public <U> List<U> getInput(Function<String, U> mapper) throws JollyException {
+    public List<U> getInput(Function<String, U> mapper) throws JollyException {
         return getInput(mapper, Collectors.toList(), DEFULAT_INPUT_DELIMITER);
     }
 
-    public <U> List<U> getInput(Function<String, U> mapper, Collector<U, ?, List<U>> collector, String inputDelimiter) throws JollyException {
+    public List<U> getInput(Function<String, U> mapper, Collector<U, ?, List<U>> collector, String inputDelimiter) throws JollyException {
         try {
             InputStream is = getClass().getClassLoader().getResourceAsStream(inputName);
             Scanner scan = new Scanner(is);

@@ -13,7 +13,7 @@ import net.jjshanks.error.JollyException;
 
 public class Day3Part1 extends AbstractProblem {
 
-    private InputReader inputReader;
+    private InputReader<TobogganMapRow> inputReader;
 
     static final Logger LOG = LoggerFactory.getLogger(Day3Part2.class);
 
@@ -22,7 +22,7 @@ public class Day3Part1 extends AbstractProblem {
     }
 
     Day3Part1(String inputPath) {
-        this.inputReader = new InputReader(inputPath);
+        this.inputReader = new InputReader<>(inputPath);
     }
 
     public Day3Part1() {
@@ -46,7 +46,7 @@ public class Day3Part1 extends AbstractProblem {
         }
         solution(trees);
     }
-    
+
     static class TobogganMap {
         List<TobogganMapRow> rows;
         int row = 0;

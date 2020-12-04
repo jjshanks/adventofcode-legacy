@@ -13,7 +13,7 @@ import net.jjshanks.error.JollyException;
 
 public class Day1Part1 extends AbstractProblem {
 
-    private InputReader inputReader;
+    private InputReader<Integer> inputReader;
 
     static final Logger LOG = LoggerFactory.getLogger(Day1Part1.class);
 
@@ -22,7 +22,7 @@ public class Day1Part1 extends AbstractProblem {
     }
 
     Day1Part1(String inputPath) {
-        this.inputReader = new InputReader(inputPath);
+        this.inputReader = new InputReader<>(inputPath);
     }
 
     public Day1Part1() {

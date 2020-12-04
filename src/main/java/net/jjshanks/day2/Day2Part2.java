@@ -12,7 +12,7 @@ import net.jjshanks.error.JollyException;
 
 public class Day2Part2 extends AbstractProblem {
 
-    private InputReader inputReader;
+    private InputReader<PasswordEntry> inputReader;
 
     static final Logger LOG = LoggerFactory.getLogger(Day2Part2.class);
 
@@ -21,7 +21,7 @@ public class Day2Part2 extends AbstractProblem {
     }
 
     Day2Part2(String inputPath) {
-        this.inputReader = new InputReader(inputPath);
+        this.inputReader = new InputReader<>(inputPath);
     }
 
     public Day2Part2() {
