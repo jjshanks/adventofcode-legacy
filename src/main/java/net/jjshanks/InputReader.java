@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import net.jjshanks.error.JollyException;
@@ -22,14 +23,19 @@ public class InputReader {
     }
 
     public List<String> getInput() throws JollyException {
-        return getInput(Function.identity());
+        return getInput(Function.identity(), Collectors.toList());
     }
 
-    public <U> List<U> getInput(Function<String, U> function) throws JollyException {
+    public <U> List<U> getInput(Function<String, U> mapper) throws JollyException {
+        return getInput(mapper, Collectors.toList());
+    }
+
+    public <U> List<U> getInput(Function<String, U> mapper, Collector<U, ?, List<U>> collector) throws JollyException {
         try {
             URL url = getClass().getClassLoader().getResource(inputName);
             Path path = Paths.get(url.toURI());
-            return Files.readAllLines(path, StandardCharsets.UTF_8).stream().map(function).collect(Collectors.toList());
+            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+            return lines.stream().map(mapper).collect(collector);
         } catch (IOException|URISyntaxException e) {
             throw new JollyException(e);
         }
