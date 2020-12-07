@@ -51,9 +51,9 @@ public class Day4 extends AbstractProblem {
     private void part2() throws JollyException {
         List<Room> rooms = inputReader.getInput(Room::parse);
         for(Room room : rooms) {
-            String s = room.decrypt();
-            if(s.contains("orth")) {
-                LOG.info("{} - {}", s.replaceAll("[^a-z]", " "), room.sectorId);
+            String s = room.decrypt().replaceAll("[^a-z]", " ");
+            if(s.equals("northpole object storage")) {
+                solution(room.sectorId);
             }
         }
     }
